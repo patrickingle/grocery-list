@@ -1,21 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import groceries from "./groceries";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <ul>
+    {groceries.map(grocery => (
+      <li
+        key={grocery.item + grocery.type}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          float: "left",
+          margin: "1.5rem"
+        }}
+      >
+        <img
+          src={`/res/${grocery.category}.svg`}
+          alt={grocery.category}
+          width="64px"
+        />
+
+        <ul>
+          {Object.keys(grocery).map(key => (
+            <li
+              key={key}
+              style={{
+                textTransform: "capitalize"
+              }}
+            >
+              {grocery[key]}
+            </li>
+          ))}
+        </ul>
+      </li>
+    ))}
+  </ul>
+);
 
 export default App;
