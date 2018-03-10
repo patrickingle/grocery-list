@@ -1,0 +1,7 @@
+.ingredient {
+  display: flex;
+  align-items: center;
+  float: left;
+  margin: 1.5rem; }
+  .ingredient .ingredient-detail {
+    text-transform: capitalize; }

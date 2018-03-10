@@ -1,17 +1,13 @@
 import React from 'react';
 import groceries from "./groceries";
+import "./App.css";
 
 const App = () => (
   <ul>
     {groceries.map(grocery => (
       <li
         key={grocery.item + grocery.type}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          float: "left",
-          margin: "1.5rem"
-        }}
+        className="ingredient"
       >
         <img
           src={`/res/${grocery.category}.svg`}
@@ -23,9 +19,7 @@ const App = () => (
           {Object.keys(grocery).map(key => (
             <li
               key={key}
-              style={{
-                textTransform: "capitalize"
-              }}
+              className="ingredient-detail"
             >
               {grocery[key]}
             </li>
